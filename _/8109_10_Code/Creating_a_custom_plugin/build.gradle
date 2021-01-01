@@ -1,0 +1,11 @@
+apply plugin: InfoPlugin
+
+class InfoPlugin implements Plugin<Project> {
+    
+    void apply(Project project) {
+        project.task('info') << {
+            println "Running Gradle: $project.gradle.gradleVersion"
+        }
+    }
+
+}

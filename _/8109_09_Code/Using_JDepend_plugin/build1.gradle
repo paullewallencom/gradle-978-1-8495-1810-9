@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'jdepend'
+
+// Repository definition to get JDepend libraries.
+repositories {
+    mavenCentral()
+}
+
+jdepend.reportsDir = file("${reporting.baseDir}/jdepend-output")
+
+jdependMain {
+    reports {
+        text { 
+            enabled = 'true'
+            destination = file("${jdepend.reportsDir}/jdepend.txt")
+        }
+        xml {
+            enabled = !text.enabled
+        }
+    }
+}

@@ -1,0 +1,16 @@
+import org.gradle.plugins.ear.Ear
+
+apply plugin: 'java'
+
+version = '1.0'
+
+task ear(type: Ear) {
+    from 'src/main/application'
+    lib {
+        from fileTree('earLibs')
+    }
+
+    baseName = 'gradle-enterprise-app'
+}
+
+assemble.dependsOn ear

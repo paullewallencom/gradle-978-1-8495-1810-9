@@ -1,0 +1,13 @@
+task numbers << {
+    (1..4).each { number ->
+        def squared = number * number
+        println "Square of ${number} = ${squared}"
+    }
+}
+
+task list {
+    doFirst {
+        def list = ['Groovy', 'Gradle']
+        println list.collect { it[0].toLowerCase() }.join('&')
+    }
+}

@@ -1,0 +1,12 @@
+// Define Version class.
+class Version {
+    int major, minor, revision
+    boolean release
+
+    String toString() {
+        release ? "$major.$minor.$revision" : "$major.$minor.$revision-SNAPSHOT"
+    }
+}
+
+// Use Version object.
+version = new Version(major: 2, minor: 1, revision: 0)

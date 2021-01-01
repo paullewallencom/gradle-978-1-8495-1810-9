@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+sourceSets {
+    api
+}
+
+javadoc {
+    source sourceSets.api.allJava
+    title = 'Gradle Sample Project'
+    options.links = ['http://docs.oracle.com/javase/6/docs/api/']
+    options.footer = "Generated on ${new Date().format('dd MMM yyyy')}"
+    options.header = "Documention for version ${project.version}"
+}

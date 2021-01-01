@@ -1,0 +1,10 @@
+// File: buildSrc/build.gradle
+build.doLast {
+    println 'Done building buildSrc'
+}
+
+repositories.mavenCentral()
+
+dependencies {
+    testCompile 'junit:junit:4.10'
+}

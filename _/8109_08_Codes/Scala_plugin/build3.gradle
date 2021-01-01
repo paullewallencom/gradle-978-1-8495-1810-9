@@ -1,0 +1,24 @@
+apply plugin: 'scala'
+
+repositories.mavenCentral()
+
+ext {
+    scala = [version: '2.9.2', group: 'org.scala-lang']
+}
+
+dependencies {
+    scalaTools "${scala.group}:scala-compiler:${scala.version}"
+    scalaTools "${scala.group}:scala-library:${scala.version}"
+
+    compile "${scala.group}:scala-library:${scala.version}"
+}
+
+task scalaSourceSetsProperties << {
+    sourceSets {
+        main {
+            println "scala.srcDirs = ${scala.srcDirs}"
+            println "scala.files = ${scala.files.name}"
+            println "allScala.files = ${allScala.files.name}"
+        }
+    }
+}

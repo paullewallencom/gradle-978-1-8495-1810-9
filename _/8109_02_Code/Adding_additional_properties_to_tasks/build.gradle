@@ -1,0 +1,4 @@
+task simple << {
+    println "Hello ${message}"
+}
+simple.message = 'world'

@@ -1,0 +1,10 @@
+apply {
+    plugin 'java'
+    plugin 'checkstyle'
+}
+
+repositories.mavenCentral()
+
+checkstyle {
+    configFile = file('config/checkstyle/sun_checks.xml')
+}

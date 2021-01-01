@@ -1,0 +1,12 @@
+repositories {
+    ivy {
+        credentials {
+            username = usernameFromGradleProperties
+            password = passwordFromGradleProperties
+        }
+        url = 'http://intranet/custom'
+        ivyPatterns '[module]/[revision]/ivy.xml'
+        artifactPatterns '[module]/[revision]/[artifact](.[ext])'
+        artifactPatterns '[module]/[revision]/[artifact](.[ext])'
+    }
+}

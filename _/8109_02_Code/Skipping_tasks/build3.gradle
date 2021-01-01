@@ -1,0 +1,7 @@
+task 'listDirectory' {
+    def dir = new File('assemble')
+    enabled = dir.exists()
+    doLast {
+        println "List directory contents: ${dir.listFiles().join(',')}"
+    }
+}

@@ -1,0 +1,13 @@
+task copyAndRename(type: Copy) {
+    from 'src'
+
+    rename { String fileName ->
+        if (fileName.endsWith('txt')) {
+            String original = fileName
+            String originalWithoutExtension = original - '.txt'
+            originalWithoutExtension + '.text'
+        }
+    }
+
+    into 'dist'
+}

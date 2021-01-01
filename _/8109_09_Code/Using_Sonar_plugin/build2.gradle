@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'sonar'
+
+version = '2.0-SNAPSHOT'
+group = 'gradle.sample'
+
+sonarAnalyze.dependsOn 'build'
+
+sonar {
+    project {
+        // Change directory to store Sonar client library files.
+        bootstrapDir = file("${buildDir}/sonarClient")
+
+        // Set Sonar profile to be used.
+        profile = 'quality'
+
+        // Set path to Cobertura results.
+        coberturaReportPath = file("${reporting.baseDir}/cobertura/cobertura.xml")
+    }
+}

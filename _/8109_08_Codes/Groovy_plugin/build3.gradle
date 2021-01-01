@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+
+version = 1.0
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.6'
+}
+
+groovydoc {
+    header = 'GroovyDoc for sample project'
+    footer = "Generated documentation - $version"
+    docTitle = 'GroovyDoc Title'
+    windowTitle = docTitle
+    use = true // Create class and package usage pages
+
+    // Exclude files, use include to include files
+    exclude '**/*Doc.groovy' 
+}

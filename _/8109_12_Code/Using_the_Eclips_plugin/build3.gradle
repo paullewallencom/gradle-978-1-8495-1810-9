@@ -1,0 +1,42 @@
+def plugins = ['java', 'eclipse']
+plugins.each { apply plugin: it }
+
+version = 1.0
+
+description = 'Sample project'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8'
+}
+
+eclipse {
+    project {
+        file { 
+            withXml { xml ->
+                def projectXml = xml.asNode()
+                projectXml.name = 'sample-eclipse'
+
+                def natures = projectXml.natures
+                natures.plus {
+                    nature {
+                        'org.springframework.ide.eclipse.core.springnature'
+                    }    
+                }    
+            }
+        }
+    }
+
+    classpath {
+        file {
+            withXml { xml ->
+                def classpathXml = xml.asNode()
+                classpathXml.classpathentry.findAll { it.@kind == 'con' }*.@exported = 'true'
+            }
+        }
+    }
+
+}

@@ -1,0 +1,9 @@
+task expandFiles(type: Copy) {
+    from 'src/expand.txt'
+    into 'dist'
+
+    // Set property languages
+    expand languages: ['Java', 'Groovy', 'Scala']
+
+    rename 'expand.txt', 'expanded.txt'
+}

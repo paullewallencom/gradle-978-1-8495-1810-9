@@ -1,0 +1,11 @@
+import java.util.concurrent.Callable
+
+def dirs = files {
+    [new File('src'), file('README')].findAll { it.directory }
+}
+
+def rootFiles = files(new Callable<List<File>>() {
+    List<File> call() {
+        [new File('src'), file('README'), file('INSTALL')].findAll { it.file }
+    }
+})

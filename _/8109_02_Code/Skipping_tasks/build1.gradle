@@ -1,0 +1,11 @@
+def file = new File('data.sample')
+
+task 'handleFile' << {
+    println "Work with file ${file.name}"
+}
+
+handleFile.onlyIf(new Spec() {
+    boolean isSatisfiedBy(task) {
+        file.exists()
+    }
+})

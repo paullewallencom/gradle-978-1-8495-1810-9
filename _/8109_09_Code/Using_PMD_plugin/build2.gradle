@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'pmd'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets { 
+    util 
+}
+
+pmd {
+    // Change base reporting dir for PDM reports.
+    reportsDir = file("${reporting.baseDir}/pmd-output")
+}
+
+configure(tasks.withType(Pmd)) { 
+    // Disable HTML report generation for all PDM tasks.
+    reports.html.enabled = false
+}
+
+// Change output file for the single task pmdMain.
+pmdMain {
+    reports {
+        xml.destination = file("${pmd.reportsDir}/pmd.xml")
+    }
+}

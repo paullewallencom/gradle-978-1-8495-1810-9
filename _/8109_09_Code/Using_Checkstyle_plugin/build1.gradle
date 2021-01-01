@@ -1,0 +1,10 @@
+apply {
+    plugin 'java'
+    plugin 'checkstyle'
+}
+
+repositories.mavenCentral()
+
+checkstyle {
+    ignoreFailures = true
+}

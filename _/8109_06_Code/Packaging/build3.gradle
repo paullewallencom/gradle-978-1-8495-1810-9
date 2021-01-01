@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'ear'
+
+version = '1.0'
+
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    deploy 'sample:gradle-web:1.0'
+    earlib 'org.slf4j:slfj4-impl:1.6.2'
+}
+
+ear.baseName = 'gradle-enterprise-app'

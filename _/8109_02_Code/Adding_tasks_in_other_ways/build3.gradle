@@ -1,0 +1,9 @@
+def printTaskName = { task ->
+    println "Running ${task.name}"
+}
+
+// Use project variable.
+project.tasks.add(name: 'first') << printTaskName
+
+// Let Gradle resolve tasks to project variable.
+tasks.add(name: 'second', dependsOn: 'first') << printTaskName

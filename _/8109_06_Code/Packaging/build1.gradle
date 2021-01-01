@@ -1,0 +1,26 @@
+apply plugin: 'war'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    extraLibs
+}
+
+dependencies {
+    providedCompile 'javax.servlet:servlet-api:3.0'
+    providedRuntime 'webcontainer:logging:1.0'
+    extraLibs 'sample:lib:2.1'
+}
+
+war {
+    classpath configuration.extraLibs
+
+    // Custom web.xml.
+    webXml = file('src/main/webXml/web-dev.xml')
+
+    baseName = 'gradle-webapp'
+}

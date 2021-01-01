@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:[4.8,)'
+}
+
+test {
+    // Disable automatic inspections.
+    scanForTestClasses = false
+
+    // Include test classes.
+    include '**/*Test.class', '**/*Spec.class'
+
+    // Exclude test classes.
+    exclude '**/Abstract*.class', '**/Run*.class'
+}

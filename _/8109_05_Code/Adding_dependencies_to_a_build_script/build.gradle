@@ -1,0 +1,13 @@
+buildscript {
+    repositories.mavenCentral()
+
+    dependencies {
+        classpath 'commons-lang:commons-lang:2.6'
+    }
+}
+
+import org.apache.commons.lang.SystemUtils
+
+task 'systemInfo' << {
+    println SystemUtils.OS_NAME
+}

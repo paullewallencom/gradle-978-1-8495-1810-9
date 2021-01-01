@@ -1,0 +1,21 @@
+apply plugin: 'jetty'
+
+configurations {
+    jettyAdditionalLibs
+}
+
+dependencies {
+    jettyAdditionalLibs 'org.slf4j:slf4j-simple:1.6.6'
+}
+
+jettyRun {
+    // External Jetty configuration file.
+    jettyConfig = file('src/jetty/jetty.xml')
+
+    // Extra libraries for Jetty runtime.
+    additionalRuntimeJars configurations.jettyAdditionalLibs
+
+    // Properties for stopping Jetty with jettyStop
+    stopPort = 8109
+    stopKey = 'JettyStop'   
+}

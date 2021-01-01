@@ -1,0 +1,9 @@
+repositories {
+    maven(name: 'Secured repository') {
+        credentials {
+            username = 'username'
+            password = 'password'
+        }
+        url = 'http://intranet/repo'
+    }
+}

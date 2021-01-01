@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':projectA')
+
+    compile project(':projectB') {
+        configuration = 'compile'
+    }
+}

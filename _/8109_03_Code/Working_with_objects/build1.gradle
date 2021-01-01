@@ -1,0 +1,4 @@
+import sample.Version
+
+// Use Version object.
+version = new Version(major: 1, minor: 3, revision: 32)

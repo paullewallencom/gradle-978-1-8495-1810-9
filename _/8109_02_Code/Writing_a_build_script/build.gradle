@@ -1,0 +1,5 @@
+project.description = 'Simple project'
+
+task simple << {
+    println 'Running simple task for project ' + project.description
+}

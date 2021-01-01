@@ -1,0 +1,27 @@
+apply plugin: InfoPlugin
+
+// Configure the InfoPlugin through the
+// InfoPluginExtension.
+info {
+    prefix = 'Gradle version'
+}
+// Or info.prefix = 'Gradle version'
+
+class InfoPlugin implements Plugin<Project> {
+    
+    void apply(Project project) {
+        // Add the Java Bean InfoPluginExtension with the
+        // name info to the project ExtensionContainer.
+        project.extensions.create('info', InfoPluginExtension)
+
+        project.task('info') << {
+            // Use project.info.prefix from the extension.
+            println "$project.info.prefix: $project.gradle.gradleVersion"
+        }
+    }
+
+}
+
+class InfoPluginExtension {
+    String prefix = 'Running Gradle'
+}

@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+sourceSets {
+    api
+}
+
+javadoc {
+    source sourceSets.api.allJava
+}

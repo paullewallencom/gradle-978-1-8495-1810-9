@@ -1,0 +1,22 @@
+apply {
+    plugin 'java'
+    plugin 'checkstyle'
+}
+
+repositories.mavenCentral()
+
+checkstyle {
+    reportsDir = file("${buildDir}/checkstyle-output")
+}
+
+checkstyleTest {
+    reports.xml.enabled = false
+}
+
+checkstyleMain {
+    reports {
+        xml {
+            destination = file("${checkstyle.reportsDir}/checkstyle.xml")
+        }
+    }
+}

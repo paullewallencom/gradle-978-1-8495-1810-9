@@ -1,0 +1,5 @@
+apply plugin: sample.InfoPlugin
+
+info {
+    prefix = 'Gradle version'
+}

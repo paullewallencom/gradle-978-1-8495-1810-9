@@ -1,0 +1,14 @@
+buildscript {
+    repositories {
+        maven {
+            url 'file:../lib'
+        }
+    }
+    dependencies {
+        classpath group: 'sample.infoplugin', name: 'infoplugin', version: '1.0'
+    }
+}
+
+apply plugin: 'info'
+
+info.prefix = 'Gradle version'

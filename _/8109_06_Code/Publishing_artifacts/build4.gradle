@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+archivesBaseName = 'gradle-sample'
+version = '1.0'
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task docJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'docs'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives docJar
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'upload'
+        }
+    }
+}

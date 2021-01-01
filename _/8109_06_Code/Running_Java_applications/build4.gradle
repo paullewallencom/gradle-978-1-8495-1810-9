@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+archivesBaseName = 'gradle-sample'
+version = '1.0'
+
+mainClassName = 'gradle.sample.SampleApp'
+
+task docs {
+    def docsDir = 'docs'
+    def docsResultDir = file("$buildDir/$docsDir")
+
+    // Assign directory to task outputs.
+    docs.outputs.dir docResultDir
+
+    doLast {
+        docsResultDir.mkdirs()
+        new File(docsResultDir, 'README').write('Please read me.')
+    }
+}
+
+applicationDistribution.from(docs) {
+    // Directory in distribution ZIP archive.
+    into 'docs'
+}

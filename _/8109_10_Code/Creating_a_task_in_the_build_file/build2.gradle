@@ -1,0 +1,13 @@
+task info(type: InfoTask)
+
+defaultTasks 'info'
+
+class InfoTask extends DefaultTask {
+    @Optional
+    String prefix = 'Current Gradle version'
+
+    @TaskAction
+    def info() {
+        println "$prefix: $project.gradle.gradleVersion"
+    }
+}

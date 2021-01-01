@@ -1,0 +1,12 @@
+configurations {
+    commonsLib {
+        description = 'Common libraries'
+    }
+    mainLib {
+        description = 'Main libraries'
+        extendsFrom commonsLib
+    }
+}
+
+println configurations['mainLib'].name
+println configurations.commonsLib.name

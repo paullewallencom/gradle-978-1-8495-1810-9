@@ -1,0 +1,15 @@
+// Use the InfoTask we defined
+task info(type: InfoTask)
+
+defaultTasks 'info'
+
+/**
+ * Show current Gradle version.
+ */
+class InfoTask extends DefaultTask {
+
+    @TaskAction
+    def info() {
+        println "Current Gradle version: $project.gradle.gradleVersion"
+    }
+}

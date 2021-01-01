@@ -1,0 +1,34 @@
+project.version = '1.0'
+
+task createVersionDir {
+    def outputDir = new File('output')
+
+    // If project.version changes then the
+    // task is no longer up-to-date
+    inputs.property 'version', project.version
+
+    outputs.dir outputDir
+
+    doLast {
+        println "Making directory ${outputDir.name}"
+        mkdir outputDir
+    }
+}
+
+task convertFiles {
+    // Define multiple files to be checked as inputs.
+    inputs.files 'input/input1.xml', 'input/input2.xml'
+    // Or use inputs.dir 'input' to check a complete directory.
+
+    // Use upToDateWhen method to define predicate.
+    outputs.upToDateWhen {
+        // If output directory contains any file which name
+        // starts with output and has the txt extension,
+        // then the task is up-to-date.
+        new File('output').listFiles().any { it.name ==~ /output.*\.txt$/ }
+    }
+
+    doLast {
+        println "Running convertFiles"
+    }
+}

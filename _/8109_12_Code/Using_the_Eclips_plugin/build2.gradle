@@ -1,0 +1,83 @@
+def plugins = ['java', 'eclipse']
+plugins.each { apply plugin: it }
+
+version = 1.0
+
+description = 'Sample project'
+
+ext {
+    slf4jVersion = '1.6.6'
+    slf4jGroup = 'org.slf4j'
+}
+
+configurations {
+    extraLib 
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.8'
+
+    extraLib "$slf4jGroup:slf4j-api:$slf4jVersion", "$slf4jGroup:slf4j-simple:$slf4jVersion"
+}
+
+eclipse {
+    project {
+        file { 
+            beforeMerged { project ->
+                // We can access the internal object structure
+                // using merge hooks.
+                project.natures.clear()
+            }
+
+            afterMerged { project ->
+                project.name = 'sample-eclipse'
+
+                project.comment = 'Eclipse project file build by Gradle'        
+        
+                project.natures.add 'org.springframework.ide.eclipse.core.springnature'
+
+                buildCommand.add 'org.springframework.ide.eclipse.core.springbuilder'
+
+                linkedResources.add name: 'config', type: '2', location: 'file:/opt/local'
+
+                referencedProjects.add 'other-project'
+            }
+
+        }
+    }
+
+    classpath {
+        file {
+            beforeMerged { classpath ->
+                // Remove lib classpath entries.
+                classpath.entries.removeAll {
+                    it.kind == 'lib'
+                }
+            }
+
+            whenMerged { classpath ->
+                classpath.entries.add kind: 'output', path: "$buildDir/eclipse-classes"
+            }
+        }
+    }
+
+    jdt {
+        file {
+            beforeMerged { jdt ->
+            }
+
+            whenMerged { jdt ->
+                jdt.sourceCompatibility = 1.6
+                jdt.targetCompatibility = 1.6
+            }
+
+            whenProperties { properties -> 
+                properties.extraProperty = 'value'
+            }
+        }
+    }
+}

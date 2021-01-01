@@ -1,0 +1,9 @@
+repositories {
+    maven {
+        // Name is optional. If not set url property is used
+        name = 'Main Maven repository'
+        url = 'http://intranet/repo'
+    }
+
+    mavenRepo(name: 'Snapshot repository', url: 'http://intranet/snapshots')
+}

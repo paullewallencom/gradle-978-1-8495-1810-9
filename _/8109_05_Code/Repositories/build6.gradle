@@ -1,0 +1,7 @@
+repositories {
+    ivy(url: 'http://intranet/ivy-repo', name: 'Our repository')
+
+    ivy {
+        url = 'http://intranet/ivy-snapshots'
+    }
+}

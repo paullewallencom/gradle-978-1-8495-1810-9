@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'signing'
+
+archivesBaseName = 'gradle-sample'
+version = '1.0'
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+signing {
+    sign sourcesJar
+}

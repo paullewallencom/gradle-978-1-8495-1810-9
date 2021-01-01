@@ -1,0 +1,11 @@
+allprojects {
+    task printInfo << {
+        println "This is ${project.name}"
+    }
+}
+
+configure(allprojects.findAll { it.name.startsWith('f') }) {
+    printInfo << {
+        println 'Smells nice'
+    }
+}

@@ -1,0 +1,10 @@
+task archiveDist(type: Zip) {
+    from 'dist'
+
+    // Create output filename.
+    baseName = 'dist-files'
+    appendix = 'archive'
+    extension = 'zip'
+    version = version
+    classifier = 'sample'
+}

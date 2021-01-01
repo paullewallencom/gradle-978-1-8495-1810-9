@@ -1,0 +1,8 @@
+repositories {
+    flatDir(dir: '../lib', name: 'libs directory')
+
+    flatDir {
+        dirs '../project-files', '/volumes/shared-libs'
+        name = 'All dependency directories'
+    }
+}

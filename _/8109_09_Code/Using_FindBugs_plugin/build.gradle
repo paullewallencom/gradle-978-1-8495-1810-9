@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'findbugs'
+
+repositories {
+    mavenCentral()
+}
+
+findbugs {
+    toolVersion = '2.0.0' // Default version with Gradle 1.0
+}
+
+sourceSets { 
+    webservice
+}

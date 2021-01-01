@@ -1,0 +1,5 @@
+task info(type: sample.InfoTask) {
+    prefix = 'Running Gradle'
+}
+
+defaultTasks 'info'

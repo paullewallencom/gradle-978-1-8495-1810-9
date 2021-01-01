@@ -1,0 +1,22 @@
+repositories {
+    ivy {
+        url = 'http://intranet/ivy-snapshots'
+        layout = 'maven'
+    }
+
+    ivy {
+        url = 'http://intranet/repository'
+        layout = 'gradle'
+    }
+
+    ivy {
+        url = 'http://intranet/custom'
+        layout('pattern') {
+            // Pattern to resolve Ivy descriptor files.
+            ivy '[module]/[revision]/ivy.xml'
+
+            // Pattern to resolve files.
+            artifact '[module]/[revision]/[artifact](.[ext])'
+        }
+    }
+}

@@ -1,0 +1,7 @@
+repositories {
+    ivy {
+        url = 'http://intranet/custom'
+        ivyPatterns '[module]/[revision]/ivy.xml'
+        artifactPatterns '[module]/[revision]/[artifact](.[ext])'
+    }
+}

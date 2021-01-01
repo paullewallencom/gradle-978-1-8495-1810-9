@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="mrhaki-jdriven.local" name="sample.gradle.impl.SampleTest" tests="1" time="0.047" timestamp="2012-05-18T10:56:42">
+  <properties />
+  <testcase classname="sample.gradle.impl.SampleTest" name="sayHello" time="0.0060" />
+  <system-out><![CDATA[LOG: sayHello()
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

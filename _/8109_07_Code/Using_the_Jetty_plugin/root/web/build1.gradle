@@ -1,0 +1,9 @@
+apply plugin: 'jetty'
+
+httpPort = 8090
+
+jettyRun {
+    contextPath = 'sample'
+    reload = 'automatic'
+    scanIntervalSeconds = 10
+}

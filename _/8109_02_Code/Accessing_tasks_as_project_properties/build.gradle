@@ -1,0 +1,12 @@
+task simple << { task ->
+    println "Running ${task.name}"
+}
+
+// The simple task is available as project property.
+simple.description = 'Print task name'
+simple.doLast {
+    println "Done"
+}
+project.simple.doFirst {
+    println "Start"
+}

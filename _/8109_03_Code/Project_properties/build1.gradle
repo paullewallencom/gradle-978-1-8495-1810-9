@@ -1,0 +1,14 @@
+ext.customProperty = 'custom'
+
+// Or we can use ext{} script block.
+ext {
+    anotherCustomProperty = 'custom'
+}
+
+task showProperties {
+    doLast {
+        println customProperty
+        println ext.customProperty
+        println project.customProperty
+    }
+}

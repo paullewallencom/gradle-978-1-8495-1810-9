@@ -1,0 +1,13 @@
+task 'filterFiles' << {
+    def rootFiles = files('INSTALL', 'README')
+
+    // Filter for files smaller than 5KB
+    def smallFiles = rootFiles.filter {
+        it.name.endsWith 'txt'
+    }
+
+    rootFiles = rootFiles + files('LICENSE.txt')
+    
+    // smallFiles now contains 2 files:
+    // INSTALL and LICENSE
+}

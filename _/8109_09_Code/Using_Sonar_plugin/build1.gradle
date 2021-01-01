@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'sonar'
+
+sonarAnalyze.dependsOn 'build'
+
+sonar {
+    server.url = 'http://sonar.company'
+    database {
+        url = 'jdbc:mysql://database.server/sonar'
+        driverClassName = 'com.mysql.jdbc.Driver'
+        username = 'sonar'
+        password = 'sonar'
+    }
+}

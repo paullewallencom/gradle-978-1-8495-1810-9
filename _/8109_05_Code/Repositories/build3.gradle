@@ -1,0 +1,7 @@
+repositories {
+    maven {
+        url: 'http://intranet/mvn'
+        artifactUrls 'http://intranet/jars'
+        artifactUrls 'http://intranet/snapshot-jars'
+    }
+}

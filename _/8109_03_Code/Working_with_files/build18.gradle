@@ -1,0 +1,6 @@
+task simpleCopy << {
+    copy {
+            from 'src/xml'
+            into 'definitions'
+    }
+}

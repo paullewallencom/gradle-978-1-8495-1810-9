@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:[4.8,)', 'org.testng:testng:6.5.1'
+}
+
+task testNG(type: Test) {
+    useTestNG()
+}
+
+test.dependsOn testNG

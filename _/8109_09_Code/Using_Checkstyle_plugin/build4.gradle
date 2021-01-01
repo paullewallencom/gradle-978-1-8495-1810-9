@@ -1,0 +1,12 @@
+apply {
+    plugin 'java'
+    plugin 'checkstyle'
+}
+
+repositories.mavenCentral()
+
+// Set checkstyle options, that are used by
+// all checkstyle tasks.
+checkstyle {
+    configProperties = [tabWidth: 10]
+}

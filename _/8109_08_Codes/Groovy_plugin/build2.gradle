@@ -1,0 +1,19 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.6'
+}
+
+task groovySourceSetProperties << {
+    sourceSets {
+        main {
+            println "groovy.srcDirs = ${groovy.srcDirs}"
+            println "groovy.files = ${groovy.files.name}"
+            println "allGroovy.files = ${allGroovy.files.name}"
+        }
+    }
+}

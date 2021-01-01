@@ -1,0 +1,12 @@
+def simpleTask = 'simple'
+
+task "${simpleTask}" << { task ->
+    println "Running ${task.name}"
+}
+
+// Or use loops to create multiple tasks
+['Dev', 'Acc', 'Prod'].each { environment ->
+    task "deployTo${environment}" << { task ->
+        println "Deploying to ${environment}"
+    }
+}

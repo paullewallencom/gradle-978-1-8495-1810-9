@@ -1,0 +1,24 @@
+
+Accessing configuration dependencies
+We can access the dependencies for a dependency configuration in a build file or task through the configurations property of the Project object. We can use the dependencies() and allDependencies() methods to get a reference to the dependencies. 
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    runtime "org.springframework:spring-aop:3.1.1.RELEASE"
+}
+
+task 'dependencyInfo' << {
+    println "-- Runtime dependencies --"
+    configurations.runtime.dependencies.each {
+        println "${it.group}:${it.name}:${it.version}"
+    }
+
+    println "-- Runtime allDependencies --"
+    configurations.runtime.allDependencies.each {
+        println "${it.group}:${it.name}:${it.version}"
+    }
+}

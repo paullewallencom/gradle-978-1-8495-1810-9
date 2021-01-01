@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:[4.8,)'
+}
+
+test {
+    forkEvery = 10
+    maxParallelForks = 4
+}

@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'sonar'
+
+version = '2.0-SNAPSHOT'
+group = 'gradle.sample'
+
+sonarAnalyze.dependsOn 'build'
+
+sonar {
+    withGlobalProperties { properties ->
+        properties['sonar.verbose'] = true
+    }
+    project {
+        withProjectProperties { projectProperties ->
+            projectProperties['sonar.showSql'] = true
+        }
+    }
+}

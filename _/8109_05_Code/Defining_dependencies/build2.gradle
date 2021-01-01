@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Configure transitive property with closure.
+    compile('org.slf4j:slf4j-simple:1.6.4') {
+        transitive = false
+    }
+    
+    // Or we can use the transitive property
+    // as method argument.
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.4', transitive: false
+}

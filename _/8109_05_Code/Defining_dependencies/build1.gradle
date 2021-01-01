@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+def springVersion = '3.1.1.RELEASE'
+def springGroup = 'org.springframework'
+
+dependencies {
+    compile group: springGroup, name: 'spring-core', version: springVersion
+
+    runtime "$springGroup:spring-aop:$springVersion"
+}

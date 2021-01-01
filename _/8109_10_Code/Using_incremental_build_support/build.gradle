@@ -1,0 +1,27 @@
+task convert(type: ConvertTask) {
+    source = file('source.xml')
+    output = file("$buildDir/convert-output.txt")
+}
+
+/**
+ * Convert XML source file to text file.
+ */
+class ConvertTask extends DefaultTask {
+
+    @InputFile
+    File source
+
+    @OutputFile
+    File output
+
+    @TaskAction
+    void convert() {    
+        def xml = new XmlSlurper().parse(source)
+        output.withPrintWriter { writer ->
+            xml.person.each { person ->
+                writer.println "${person.name},${person.email}"
+            }
+        }
+        println "Converted ${source.name} to ${output.name}"
+    }
+}

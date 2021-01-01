@@ -1,0 +1,16 @@
+apply plugin: 'groovy'
+apply plugin: 'codenarc'
+
+// Repository definition to get CodeNarc libraries.
+repositories {
+    mavenCentral()
+}
+
+codenarc {
+    // Change version of CodeNarc.
+    toolVersion = 0.17
+
+    // Change name of configuration file. Default value
+    // is file('config/codenarc/codenarc.xml')
+    configFile = file('config/codenarc/rules.groovy')
+}

@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'pmd'
+
+repositories {
+    mavenCentral()
+}
+
+pmd {
+    // Add rules.
+    ruleSets 'design', 'braces'
+    // Or use property syntax.
+    // ruleSets = ['design', 'braces']
+
+    // Set rule set file.
+    ruleSetFiles = [file('config/pmd/customRules.xml')]
+    // Or use method.
+    //ruleSetFiles file('config/pmd/customRules.xml')
+}

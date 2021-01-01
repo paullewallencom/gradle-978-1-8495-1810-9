@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+archivesBaseName = 'gradle-sample'
+version = '1.0'
+
+sourceSets {
+    api
+}
+
+task apiJar(type: Jar) {
+    appendix = 'api'
+    from sourceSets.api.output
+}

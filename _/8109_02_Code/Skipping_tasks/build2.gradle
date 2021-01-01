@@ -1,0 +1,16 @@
+def printTaskName = { task ->
+    println "Running ${task.name}"
+}
+
+task first << printTaskName
+
+first.doFirst {
+    def today = Calendar.instance
+    def workingHours = today[Calendar.HOUR_OF_DAY] in 8..17
+
+    if (workingHours) {
+        throw new StopExecutionException()
+    }
+}
+
+task second(dependsOn: 'first') << printTaskName

@@ -1,0 +1,20 @@
+import org.gradle.api.tasks.scala.*
+
+apply plugin: 'scala'
+
+version = 2.1
+
+repositories.mavenCentral()
+
+ext {
+    scala = [version: '2.9.2', group: 'org.scala-lang']
+}
+
+dependencies {
+    scalaTools "${scala.group}:scala-compiler:${scala.version}"
+    scalaTools "${scala.group}:scala-library:${scala.version}"
+
+    compile "${scala.group}:scala-library:${scala.version}"
+}
+
+scaladoc.title = 'Scala documentation'
